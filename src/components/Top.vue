@@ -5,7 +5,7 @@
       <header class="header navbar navbar-expand-sm">
         <ul class="navbar-item theme-brand flex-row  text-center">
           <li class="nav-item theme-text">
-            <router-link to="/" class="nav-link"> LOGIX </router-link>
+            <router-link to="/" class="nav-link"> {{ APP_NAME }} </router-link>
           </li>
         </ul>
 
@@ -62,21 +62,26 @@
             </div>
           </li>
 
-          <li class="nav-item dropdown user-profile-dropdown">
+          <li class="nav-item dropdown user-profile-dropdown" :class="{ show: show }">
             <a
               href="javascript:void(0);"
               class="nav-link dropdown-toggle user"
               id="userProfileDropdown"
               data-toggle="dropdown"
               aria-haspopup="true"
-              aria-expanded="true"
+              :aria-expanded="show ? 'true' : 'false'"
+              @click.prevent="show = !show"
             >
               <img src="img/90x90.jpg" alt="avatar" />
             </a>
-            <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
+            <div
+              class="dropdown-menu position-absolute"
+              :class="{ show: show }"
+              aria-labelledby="userProfileDropdown"
+            >
               <div class="">
                 <div class="dropdown-item">
-                  <a class="" href="user_profile.html"
+                  <a class="" @click.prevent="() => {}" href="#"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -96,7 +101,7 @@
                   >
                 </div>
                 <div class="dropdown-item">
-                  <a class="" href="apps_mailbox.html"
+                  <a class="" @click.prevent="() => {}" href="#"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -118,7 +123,7 @@
                   >
                 </div>
                 <div class="dropdown-item">
-                  <a class="" href="auth_lockscreen.html"
+                  <a class="" @click.prevent="() => {}" href="#"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -138,7 +143,7 @@
                   >
                 </div>
                 <div class="dropdown-item">
-                  <a class="" href="auth_login.html"
+                  <a class="" @click.prevent="signOut" href="#"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -208,6 +213,18 @@
 <script>
 export default {
   name: 'top',
+  data() {
+    return {
+      APP_NAME: process.env.VUE_APP_NAME,
+      show: false,
+    }
+  },
+  methods: {
+    signOut() {
+      localStorage.removeItem('token')
+      this.$router.push('/login')
+    },
+  },
 }
 </script>
 

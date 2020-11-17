@@ -53,7 +53,6 @@ export default {
   methods: {
     init() {
       this.$http(`${process.env.VUE_APP_API_URL}/${this.entity}`).then(res => {
-        console.log('RES ::: ', res)
         const { data } = res
 
         if (data.status) this.data = data.items.data

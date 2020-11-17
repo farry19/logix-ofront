@@ -5,7 +5,10 @@
         <div class="form-container">
           <div class="form-content">
             <h1 class="">
-              Log In to <a href="#"><span class="brand-name">LOGIX</span></a>
+              Log In to
+              <a href="#"
+                ><span class="brand-name">{{ APP_NAME }}</span></a
+              >
             </h1>
             <p class="signup-link">
               New Here? <router-link to="/register">Create an account</router-link>
@@ -103,6 +106,7 @@ export default {
   name: 'login',
   data() {
     return {
+      APP_NAME: process.env.VUE_APP_NAME,
       email: '',
       password: '',
       password_show: false,

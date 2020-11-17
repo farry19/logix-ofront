@@ -22,8 +22,6 @@ Vue.use(GridPlugin)
 axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
 axios.interceptors.request.use(req => {
-  // `req` is the Axios request config, so you can modify
-  // the `headers`.
   req.headers.authorization = `Bearer ${getAuthToken()}`
   return req
 })
