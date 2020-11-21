@@ -3,7 +3,7 @@ import decode from 'jwt-decode'
 import axios from 'axios'
 
 // const REST_ENDPOINT = 'http://logix.test/api/v1'
-const REST_ENDPOINT = process.env.VUE_APP_API_URL
+const REST_ENDPOINT = process.env.VUE_APP_BASE_URL
 const AUTH_TOKEN_KEY = 'token'
 
 export const loginUser = (email, password) => {

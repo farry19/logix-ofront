@@ -10,9 +10,7 @@
                 ><span class="brand-name">{{ APP_NAME }}</span></a
               >
             </h1>
-            <p class="signup-link">
-              New Here? <router-link to="/register">Create an account</router-link>
-            </p>
+
             <form class="text-left">
               <div class="form">
                 <div id="username-field" class="field-wrapper input">

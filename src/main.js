@@ -19,7 +19,7 @@ import { getAuthToken } from './utils/auth'
 
 Vue.use(GridPlugin)
 
-axios.defaults.baseURL = process.env.VUE_APP_API_URL
+axios.defaults.baseURL = process.env.VUE_APP_BASE_URL
 
 axios.interceptors.request.use(req => {
   req.headers.authorization = `Bearer ${getAuthToken()}`

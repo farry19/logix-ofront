@@ -4,10 +4,10 @@
     <div class="overlay"></div>
     <!-- <div class="search-overlay"></div> -->
 
-    <Navigation />
+    <Navigation v-model="toggle" />
 
     <!--  BEGIN CONTENT AREA  -->
-    <div id="content" class="main-content">
+    <div id="content" class="main-content" :class="{ 'sbar-open': toggle }">
       <div class="layout-px-spacing">
         <div class="row layout-top-spacing">
           <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
@@ -56,7 +56,9 @@ export default {
     Navigation,
   },
   data() {
-    return {}
+    return {
+      toggle: false,
+    }
   },
 }
 </script>
